@@ -1,2 +1,26 @@
 <h1 class="d-flex justify-content-center mt-3">{{title | uppercase}}</h1>
 <h2 class=""> {{subtitle}}</h2>
+
+<div class="row">
+  <div class="col">
+    <ul class="list-group">
+      <li *ngFor="let p of productos" (click)="seleccionarProducto(p)" class="list-group-item {{ (p==pSeleccionado) ? 'active' : ''}}">
+        <b>{{p.nombre}}</b></li>
+    </ul>
+  </div>
+  <div class="col">
+    <div class="card" style="width: 18rem;">
+      <img src="{{pSeleccionado.imagen}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{pSeleccionado.nombre}}</h5>
+        <p class="card-text">Precio: {{pSeleccionado.precio | currency:'EUR':true}}</p>
+        <p class="card-text">Categoria: {{pSeleccionado.categoria.nombre}}</p>
+        <p class="card-text">Historico: </p>
+        <ul class="list-group">
+          <li *ngFor="let h of pSeleccionado.historico" class="list-group-item">{{h.fecha}}: {{h.precio}} </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+</div>
