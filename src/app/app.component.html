@@ -11,8 +11,11 @@
   <div class="col">
     <div class="card" style="width: 18rem;">
       <img src="{{pSeleccionado.imagen}}" class="card-img-top" alt="...">
+      
       <div class="card-body">
         <h5 class="card-title">{{pSeleccionado.nombre}}</h5>
+        <span *ngIf="!pSeleccionado.gluten" class="badge badge-pill badge-success">Sin Gluten</span>
+        <span *ngIf="pSeleccionado.gluten" class="badge badge-pill badge-danger">Con Gluten</span>
         <p class="card-text">Precio: {{pSeleccionado.precio | currency:'EUR':true}}</p>
         <p class="card-text">Categoria: {{pSeleccionado.categoria.nombre}}</p>
         <p class="card-text">Historico: </p>

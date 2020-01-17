@@ -42,8 +42,8 @@ export class AppComponent {
 		"id": 25,
 		"nombre": "leche",
 		"gluten": false,
-    "precio": 2.50,
-    "imagen": "https://elcanterodeletur.com/nueva/wp-content/uploads/2018/06/leche-1L-vaca-entera.jpg",
+    	"precio": 2.50,
+    	"imagen": "https://elcanterodeletur.com/nueva/wp-content/uploads/2018/06/leche-1L-vaca-entera.jpg",
 		"categoria": {
 			"id": 1,
 			"nombre": "bebidas"
@@ -63,8 +63,8 @@ export class AppComponent {
 		"id": 13,
 		"nombre": "galletas",
 		"gluten": true,
-    "precio": 1.00,
-    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIpGTE3M-yv2QQk8dIj3Dc2qh_AKe5t2r0tMDbhvG3oiiqJ3NXIw&s",
+    	"precio": 1.00,
+    	"imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIpGTE3M-yv2QQk8dIj3Dc2qh_AKe5t2r0tMDbhvG3oiiqJ3NXIw&s",
 		"categoria": {
 			"id": 2,
 			"nombre": "dulces"
