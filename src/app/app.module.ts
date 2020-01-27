@@ -6,15 +6,24 @@ import { AppComponent } from './app.component';
 import { PruebaComponent } from './componentes/prueba/prueba.component';
 import { BotonComponent } from './componentes/boton/boton.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { InicioComponent } from './paginas/inicio/inicio.component';
+import { ArraysComponent } from './paginas/arrays/arrays.component';
+import { NavbarComponent } from './componentes/navbar/navbar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     PruebaComponent,
-    BotonComponent
+    BotonComponent,
+    InicioComponent,
+    ArraysComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule //Modulo para llamadas por HTTP
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,29 +1,6 @@
-<h1 class="d-flex justify-content-center mt-3">{{title | uppercase}}</h1>
-<h2 class=""> {{subtitle}}</h2>
-<app-boton></app-boton>
-<div class="row">
-  <div class="col">
-    <ul class="list-group">
-      <li *ngFor="let p of productos" (click)="seleccionarProducto(p)" class="list-group-item {{ (p==pSeleccionado) ? 'active' : ''}}">
-        <b>{{p.nombre}}</b></li>
-    </ul>
-  </div>
-  <div class="col">
-    <div class="card" style="width: 25rem;">
-      <img src="{{pSeleccionado.imagen}}" class="card-img-top" alt="...">
-      
-      <div class="card-body">
-        <h5 class="card-title">{{pSeleccionado.nombre}}</h5>
-        <span *ngIf="!pSeleccionado.gluten" class="badge badge-pill badge-success">Sin Gluten</span>
-        <span *ngIf="pSeleccionado.gluten" class="badge badge-pill badge-danger">Con Gluten</span>
-        <p class="card-text">Precio: {{pSeleccionado.precio | currency:'EUR':true}}</p>
-        <p class="card-text">Categoria: {{pSeleccionado.categoria.nombre}}</p>
-        <p class="card-text">Historico: </p>
-        <ul class="list-group">
-          <li *ngFor="let h of pSeleccionado.historico" class="list-group-item">{{h.fecha}}: {{h.precio}} </li>
-        </ul>
-      </div>
-    </div>
-    
-  </div>
-</div>
+<app-navbar></app-navbar>
+
+<main class="container pt-2">
+  <!-- MODULO de Angular para sistema de rutas de navegacion -->
+  <router-outlet></router-outlet>
+</main>
