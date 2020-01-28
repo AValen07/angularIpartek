@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { InicioComponent } from './paginas/inicio/inicio.component';
 import { ArraysComponent } from './paginas/arrays/arrays.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
+import { PokemonRestComponent } from './paginas/pokemon-rest/pokemon-rest.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
     BotonComponent,
     InicioComponent,
     ArraysComponent,
-    NavbarComponent
+    NavbarComponent,
+    PokemonRestComponent
   ],
   imports: [
     BrowserModule,

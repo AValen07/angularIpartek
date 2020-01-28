@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,9 @@ export class PokemonService {
 
   }
 
-  getPokemon(){
+  getPokemon(nombre:string): Observable<any>{
     
-    let url='https://pokeapi.co/api/v2/pokemon/1/';
+    const url=`https://pokeapi.co/api/v2/pokemon/${nombre}`;
     console.trace('Ha llamado al metodo getPokemon '+url);
     return this.http.get(url);
   }
