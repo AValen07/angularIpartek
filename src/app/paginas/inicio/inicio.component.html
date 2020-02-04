@@ -1,1 +1,27 @@
-<p>inicio works!</p>
+<h2>{{titulo}}</h2>
+
+<button name="boton" (click)="contarClicks()">DALE</button>
+<p>{{numeroClicks}}</p>
+
+<p>Ejemplo de propiedad siempre con [] y las variables sin llaves</p>
+<p>La propedad <code>hidden</code> es de Angular, tambien podramos haber utilizado un <code>ngIf</code></p>
+<p [hidden]="!visible">
+    Adiós
+</p>
+<p *ngIf="visible">
+    Adios con ngIF
+</p>
+<button (click)="decirAdios()">Decir adiós</button>
+
+<br>
+
+<p>Podemos declarar propiedades al vuelo sin necesidad de definirlas en el componente tambine podemos ejecutar eventos sin tener que definir una funcion.</p>
+
+<div [class]="claseSeleccionada">Color que camba al pulsar botones</div>
+<button (click)="claseSeleccionada='rojo'">Color rojo</button>
+<button (click)="claseSeleccionada='verde'">Color verde </button>
+
+
+<p>Para usar "banana in a box" recordar importar el modulo de <code>FormsModule</code></p>
+<label>Nombre: {{jugador}}</label>
+<input type="text" [(ngModel)]="jugador">

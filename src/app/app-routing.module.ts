@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { InicioComponent } from './paginas/inicio/inicio.component';
 import { ArraysComponent } from './paginas/arrays/arrays.component';
 import { PokemonRestComponent } from './paginas/pokemon-rest/pokemon-rest.component';
+import { SassComponent } from './paginas/sass/sass.component';
+import { JuegoComponent } from './paginas/juego/juego.component';
 
 
 /**
@@ -12,7 +14,9 @@ import { PokemonRestComponent } from './paginas/pokemon-rest/pokemon-rest.compon
 const routes: Routes = [
   {path: '', component: InicioComponent},
   {path: 'arrays', component: ArraysComponent},
-  {path: 'pokemon-rest', component: PokemonRestComponent}
+  {path: 'pokemon-rest', component: PokemonRestComponent},
+  {path: 'sass', component: SassComponent},
+  {path: 'juego', component: JuegoComponent}
 ];
 
 @NgModule({

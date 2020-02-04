@@ -1,0 +1,66 @@
+
+// Soporta comentarios en linea, los cuales luego no se ven en .css
+
+// Variables
+$color_pink : #da9393;
+$color_green : #00FF00;
+$color_green_dark : rgb(20, 189, 20);
+$color_black : #000;
+$color_grey : #DDD;
+$color_red : #F00;
+$color_red_dark : rgb(201, 7, 7);
+h1{
+    color: $color_pink;
+}
+
+// Nesting => p code
+p{
+    code{
+        color: $color_green;
+        background-color: $color_black;
+        padding: 2px 3px;
+    }
+}
+
+// Mixinx o funciones para reutilizar
+
+@mixin redondear( $radio, $color ){
+    border-radius: $radio;
+    border: 1px solid $color;
+    padding: 10px;
+}
+
+@mixin hoverear($color){
+    &:hover {
+        background-color:$color;
+        color: $color_grey;
+    }
+}
+//usar los mixins
+
+.borde10{
+    @include redondear(10px, $color_black);    
+}
+
+.borde50{
+    @include redondear(50%, $color_pink);
+}
+
+//Tres clases para tres botones.
+
+%boton_basico{
+    background-color: $color_grey;
+    @include redondear(30%, $color_grey);
+}
+
+.boton-verde{
+    color: $color_green;
+    @extend %boton_basico;
+    @include hoverear($color_green_dark);
+}
+
+.boton-rojo{
+    color: $color_red;
+    @extend %boton_basico;
+    @include hoverear($color_red_dark);
+}

@@ -1,0 +1,17 @@
+<h2>Juego</h2>
+
+<div class="row">
+    <div class="col">
+        <label >tu nombre: </label>
+        <input type="text" [(ngModel)]="jugador">
+        <button (click)="jugar()">Jugar</button>
+        <p>{{puntuacion}}</p>
+        <button {{activo}} (click)="puntuar()">boton</button>
+    </div>
+    <div class="col">
+        <h2>Ranking</h2>
+        <ol>
+            <li *ngFor="let entry of ranking.entries()">{{entry}}</li>
+        </ol>
+    </div>
+</div>
