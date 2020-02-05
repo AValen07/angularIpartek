@@ -1,1 +1,27 @@
-<p>directivas works!</p>
+<h2>Directivas</h2>
+<a href=""></a>
+<p>Hay tres tipo de directivas en Angualr:</p>
+<dl>
+    <dt> Components: </dt>  son directivas con una plantilla de html.
+    <dt> Estructurales: </dt> cambian el DOM añdiendo o removiendo elementos, por jemplo *ngIf.
+    <dt> Attribute directive: </dt> cambian la apariencia de un elemento del DOM, por ejemplo NgStyle.
+</dl>
+
+<p>Podemos crear nuestras propias directivas usando el comando <code>ng g d $carperta/$nombre_directiva</code></p>
+<p appHello="pink">En esta etiqueta usamos nuestra directiva <code>appHello</code></p>
+<br>
+<br>
+<span appHello="teal">Volvemos a usar <code>appHello</code></span>
+
+<br>
+<br>
+<br>
+<p appSubrayar="red">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas dignissimos pariatur accusamus hic voluptates neque sit totam ratione eum laborum voluptas dolor necessitatibus, iusto dolorum repudiandae sed ex consequuntur velit.</p>
+<p [appSubrayar]="'green'">At aut atque eligendi sunt similique rerum excepturi quasi magni commodi accusantium impedit facilis et illum, beatae ipsa, consequuntur, laboriosam modi vero doloribus ut ea! Esse, cum? Delectus, obcaecati earum.</p>
+<p [appSubrayar]="colorSeleccionado">Ipsam esse sed suscipit ab vel ut ipsa voluptatum. Cum placeat aliquam hic voluptatem enim consequatur, qui eligendi esse nobis modi laboriosam. Alias beatae cumque quas excepturi voluptate mollitia sit!</p>
+<input type="radio" name="color" (click)="colorSeleccionado='pink'">Rosa <br>
+<input type="radio" name="color" (click)="colorSeleccionado='yellow'">Amarillo <br>
+<input type="radio" name="color" (click)="colorSeleccionado='orange'">Naranja <br>
+<br>
+<p>Elige un color personalizado</p>
+<input type="color" [(ngModel)]="colorSeleccionado">

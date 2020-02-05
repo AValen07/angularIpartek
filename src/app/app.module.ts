@@ -17,6 +17,9 @@ import { SassComponent } from './paginas/sass/sass.component';
 import { JuegoComponent } from './paginas/juego/juego.component';
 import { DirectivasComponent } from './paginas/directivas/directivas.component';
 import { FiltrosComponent } from './paginas/filtros/filtros.component';
+import { HelloDirective } from './directivas/hello.directive';
+import { SubrayarDirective } from './directivas/subrayar.directive';
+import { AnimalesPipe } from './pipes/animales.pipe';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { FiltrosComponent } from './paginas/filtros/filtros.component';
     SassComponent,
     JuegoComponent,
     DirectivasComponent,
-    FiltrosComponent
+    FiltrosComponent,
+    HelloDirective,
+    SubrayarDirective,
+    AnimalesPipe
   ],
   imports: [
     BrowserModule,
