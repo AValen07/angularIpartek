@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ThrowStmt } from '@angular/compiler';
+
 
 @Component({
   selector: 'app-juego',
@@ -11,10 +13,11 @@ export class JuegoComponent implements OnInit {
   jugador:string;
   ranking = new Map();
   puntuacion:number;
-  activo:string;
+  activo:boolean;
+  
   constructor() { 
     this.puntuacion=0;
-    this.activo='disabled';
+    this.activo=true;
   }// constructor
 
   ngOnInit() {
@@ -24,7 +27,15 @@ export class JuegoComponent implements OnInit {
   jugar(){
     this.ranking.set(this.jugador,this.puntuacion);
     console.log(this.ranking.entries());
-    this.activo='';
+    this.activo=false;
+    let tiempo=setTimeout(()=> {
+      console.trace('Comienza el juego');
+      this.activo=true;
+      this.ranking.set(this.jugador,this.puntuacion);
+      this.jugador='';
+      this.puntuacion=0;            
+    },10000);
+    
   }
 
   puntuar(){
@@ -32,4 +43,6 @@ export class JuegoComponent implements OnInit {
     console.trace('contarClicks');
     this.puntuacion++;
   }// contarClicks termina
+
+  
 }

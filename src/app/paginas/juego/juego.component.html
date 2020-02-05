@@ -3,15 +3,15 @@
 <div class="row">
     <div class="col">
         <label >tu nombre: </label>
-        <input type="text" [(ngModel)]="jugador">
-        <button (click)="jugar()">Jugar</button>
+        <input [disabled]="!activo" type="text" [(ngModel)]="jugador">
+        <button [disabled]="!activo" (click)="jugar()">Jugar</button>
         <p>{{puntuacion}}</p>
-        <button {{activo}} (click)="puntuar()">boton</button>
+        <button [disabled]="activo" (click)="puntuar()">boton</button>
     </div>
     <div class="col">
         <h2>Ranking</h2>
-        <ol>
-            <li *ngFor="let entry of ranking.entries()">{{entry}}</li>
+        <ol class="list-group">
+            <li class="list-group-item" *ngFor="let entry of ranking |keyvalue">{{entry.key}} {{entry.value}}</li>
         </ol>
     </div>
 </div>

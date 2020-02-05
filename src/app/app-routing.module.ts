@@ -5,6 +5,8 @@ import { ArraysComponent } from './paginas/arrays/arrays.component';
 import { PokemonRestComponent } from './paginas/pokemon-rest/pokemon-rest.component';
 import { SassComponent } from './paginas/sass/sass.component';
 import { JuegoComponent } from './paginas/juego/juego.component';
+import { DirectivasComponent } from './paginas/directivas/directivas.component';
+import { FiltrosComponent } from './paginas/filtros/filtros.component';
 
 
 /**
@@ -16,6 +18,8 @@ const routes: Routes = [
   {path: 'arrays', component: ArraysComponent},
   {path: 'pokemon-rest', component: PokemonRestComponent},
   {path: 'sass', component: SassComponent},
+  {path: 'directivas', component: DirectivasComponent},
+  {path: 'filtros', component: FiltrosComponent},
   {path: 'juego', component: JuegoComponent}
 ];
 
