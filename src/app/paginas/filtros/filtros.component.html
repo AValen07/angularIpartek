@@ -13,8 +13,14 @@
 {{busqueda}}
 <input type="search" [(ngModel)]="busqueda" placeholder="buscar por nombre">
 
+<select [(ngModel)]="tipo">
+    <option selected>TODOS</option>
+    <option *ngFor="let t of tipos">{{t}}</option>
+</select>
+tipo seleccionado {{tipo}}
+
 <ul class="list-group">
-    <li *ngFor="let animal of animales | animalesFiltro: busqueda" class="list-group-item">
+    <li *ngFor="let animal of animales | animalesFiltro: busqueda: tipo" class="list-group-item">
         <img src="{{animal.Imagen}}" class="circle">
         <div>
             <p class="nombre">{{animal.Nombre}}</p>

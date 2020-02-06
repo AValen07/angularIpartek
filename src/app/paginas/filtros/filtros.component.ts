@@ -8,8 +8,10 @@ import {ANIMALES} from '../../animales';
 })
 export class FiltrosComponent implements OnInit {
 
+  tipos:Array<any>;
   coche:any;
   animales:Array<any>;
+  tipo:string;
   constructor() { 
     console.trace('FiltrosComponent constructor');
     this.coche={
@@ -18,12 +20,14 @@ export class FiltrosComponent implements OnInit {
                   'isDiesel':false,
                   'precio':100000.00
                 };
+    this.tipo = 'TODOS';
     this.animales = ANIMALES;
+    this.tipos=[...new Set(this.animales.map(el=>el.Tipo))];
   }//constructor
 
   ngOnInit() {
     console.trace('FiltrosComponent ngOnInit');
-
+    
   }//ngOnInit
 
 }//FiltrosComponent
