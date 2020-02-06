@@ -1,0 +1,42 @@
+{{nombre}} {{tieneGluten}}
+<input type="search" [(ngModel)]="nombre" placeholder="buscar por nombre">
+<input type="checkbox" [(ngModel)]="tieneGluten">
+<div class="row">
+    
+    <div class="col">
+        <h3>Recetario</h3>
+        <ol class="list-group">
+            <li  *ngFor="let receta of recetas | recetasFiltro: nombre: tieneGluten" (click)="seleccionarReceta(receta.id)" class="list-group-item"> 
+                {{receta.nombre}}  <i class="fab fa-pagelines {{(receta.isGlutenFree)?'text-success':'text-danger'}}"></i> 
+                <br> 
+                <i>{{receta.cocinero}}</i>
+            </li>
+        </ol>
+    </div>
+    <div class="col-8">
+        <div class="border border-primary ">
+        <h2 class="bg-primary ">{{recetaSeleccionada.nombre}}</h2>
+        <div class="row">
+            <div class="col-6 m-2 ">
+                <div class="border border-secondary rounded m-1 p-1">
+                    <img src="{{recetaSeleccionada.foto}}" alt="foto del plato" class="rounded imagen ">            
+                    <i class="fab fa-pagelines gluten {{(recetaSeleccionada.isGlutenFree)?'text-success':'text-danger'}}"></i> 
+                </div>
+            </div>
+            <div class="col m-2">
+                Ingredientes:
+                <ol class="list-group">
+                    <li *ngFor="let ingrediente of recetaSeleccionada.ingredientes" class="list-group-item">
+                        {{ingrediente}}
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col m-2">
+                <p>{{recetaSeleccionada.descripcion}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

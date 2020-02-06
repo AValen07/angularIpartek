@@ -7,6 +7,7 @@ import { SassComponent } from './paginas/sass/sass.component';
 import { JuegoComponent } from './paginas/juego/juego.component';
 import { DirectivasComponent } from './paginas/directivas/directivas.component';
 import { FiltrosComponent } from './paginas/filtros/filtros.component';
+import { RecetarioComponent } from './paginas/recetario/recetario.component';
 
 
 /**
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'sass', component: SassComponent},
   {path: 'directivas', component: DirectivasComponent},
   {path: 'filtros', component: FiltrosComponent},
+  {path: 'recetario', component: RecetarioComponent},
   {path: 'juego', component: JuegoComponent}
 ];
 

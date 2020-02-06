@@ -42,5 +42,10 @@
         'ruta': '/directivas',
         'nombre': 'Directivas',
         'icono': ''
+    },
+    {
+      'ruta': '/recetario',
+      'nombre': 'Recetario',
+      'icono': ''
     }
   ];
