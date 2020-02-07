@@ -12,26 +12,25 @@ export class RecetasPipe implements PipeTransform {
     console.debug(gluten);
     console.trace('----------------- Pipe termina');
 
-    if(busqueda && '' !==busqueda.trim()){
+    let resultado = datos;
 
-      busqueda=busqueda.toUpperCase();
-      let resultado=datos.filter((el)=>{
-      const nombre = el.nombre.toUpperCase();
-      return nombre.includes(busqueda);
-      });      
-      if(gluten){
-        return resultado.filter(el=>el.isGlutenFree===true);
-      }else{
-        return resultado
-      }
 
-    }else{
-      if(gluten){
-        return datos.filter(el=>el.isGlutenFree===true);
-      }else{
-        return datos;
-      }
+    if(gluten){
+      resultado = resultado.filter(el=>el.isGlutenFree);
     }
+
+    if(busqueda && '' !==busqueda.trim()){
+      
+      busqueda = busqueda.toLowerCase();
+
+      resultado = resultado.filter( (el) => {
+          const ingredientes = el.ingredientes.reduce( (c, p) => c + p , '');
+          const encontrar = (el.nombre + el.cocinero + ingredientes ).toLowerCase();
+          return encontrar.includes(busqueda);
+      });
+    }
+    return resultado;
+
   }//transform
 
 }//RecetasPipe

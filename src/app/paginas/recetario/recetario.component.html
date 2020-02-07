@@ -1,13 +1,28 @@
-{{nombre}} {{tieneGluten}}
-<input type="search" [(ngModel)]="nombre" placeholder="buscar por nombre">
-<input type="checkbox" [(ngModel)]="tieneGluten">
+
+
+<div class="row mb-1">
+    <div class="col">
+        <a href="#">Nueva receta</a>
+    </div>
+    <div class="col">        
+        <div class="input-group">
+            <input type="search" [(ngModel)]="nombre" class="form-control" placeholder="buscar por nombre de receta">
+            <div class="input-group-append">
+                <span class="input-group-text"> <span class="fas fa-search"></span >
+                </span>
+            </div>
+        </div>
+        <input type="checkbox" [(ngModel)]="tieneGluten">
+    </div>
+</div>
+
 <div class="row">
     
     <div class="col">
         <h3>Recetario</h3>
         <ol class="list-group">
-            <li  *ngFor="let receta of recetas | recetasFiltro: nombre: tieneGluten" (click)="seleccionarReceta(receta.id)" class="list-group-item"> 
-                {{receta.nombre}}  <i class="fab fa-pagelines {{(receta.isGlutenFree)?'text-success':'text-danger'}}"></i> 
+            <li  *ngFor="let receta of recetas | recetasFiltro: nombre: tieneGluten" (click)="seleccionarReceta(receta.id)" class="list-group-item {{(receta==recetaSeleccionada)?'active':''}}"> 
+                {{receta.nombre}}  <i class="fab fa-pagelines  {{(receta.isGlutenFree)?'text-success':'text-danger'}}"></i> 
                 <br> 
                 <i>{{receta.cocinero}}</i>
             </li>
