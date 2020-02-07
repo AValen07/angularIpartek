@@ -23,6 +23,8 @@ import { AnimalesPipe } from './pipes/animales.pipe';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { RecetarioComponent } from './paginas/recetario/recetario.component';
 import { RecetasPipe } from './pipes/recetas.pipe';
+import { Error404Component } from './paginas/error404/error404.component';
+import { SaludarComponent } from './paginas/saludar/saludar.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { RecetasPipe } from './pipes/recetas.pipe';
     AnimalesPipe,
     FooterComponent,
     RecetarioComponent,
-    RecetasPipe
+    RecetasPipe,
+    Error404Component,
+    SaludarComponent
   ],
   imports: [
     BrowserModule,

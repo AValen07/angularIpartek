@@ -20,13 +20,13 @@ export class RecetasPipe implements PipeTransform {
     }
 
     if(busqueda && '' !==busqueda.trim()){
-      
+
       busqueda = busqueda.toLowerCase();
 
       resultado = resultado.filter( (el) => {
-          const ingredientes = el.ingredientes.reduce( (c, p) => c + p , '');
-          const encontrar = (el.nombre + el.cocinero + ingredientes ).toLowerCase();
-          return encontrar.includes(busqueda);
+        const ingredientes = el.ingredientes.reduce( (c, p) => c + p , '');
+        const encontrar = (el.nombre + el.cocinero + ingredientes ).toLowerCase();
+        return encontrar.includes(busqueda);
       });
     }
     return resultado;
