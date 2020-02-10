@@ -47,5 +47,10 @@
       'ruta': '/recetario',
       'nombre': 'Recetario',
       'icono': ''
+    },
+    {
+      'ruta': '/tareas',
+      'nombre': 'Tareas',
+      'icono': ''
     }
   ];
