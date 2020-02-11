@@ -11,6 +11,9 @@ import { RecetarioComponent } from './paginas/recetario/recetario.component';
 import { Error404Component } from './paginas/error404/error404.component';
 import { SaludarComponent } from './paginas/saludar/saludar.component';
 import { TareasComponent } from './paginas/tareas/tareas.component';
+import { PrivadoComponent } from './paginas/privado/privado.component';
+import { LoginGuard } from './guards/login.guard';
+import { LoginComponent } from './paginas/login/login.component';
 
 
 /**
@@ -28,7 +31,10 @@ const routes: Routes = [
   {path: 'juego', component: JuegoComponent},
   // :pNombre los puntos sirven para indicar que es un parametro
   {path: 'saludar/:pNombre', component: SaludarComponent},
-  {path: 'tareas', component: TareasComponent},
+  {path: 'tareas', component: TareasComponent}, 
+  {path: 'login', component: LoginComponent}, 
+  // Vamos a proteger esta ruta con una guarda
+  {path: 'privado', component: PrivadoComponent, canActivate: [LoginGuard]},
   {path: '**', component: Error404Component}
 ];
 

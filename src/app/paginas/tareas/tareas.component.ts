@@ -13,10 +13,20 @@ export class TareasComponent implements OnInit {
   tareas: Array<Tarea>;
   tituloNuevo:string;
   eliminado: Tarea;
+  modoEdicion: boolean;
+
+  // mensajes
+  mensaje: string;
+  showMensaje: boolean;
+
   constructor(private servicioTarea:TareasService) { 
     console.trace('TareasComponent constructor');
     this.tareas=[];// inicializar el array
     this.tituloNuevo='';
+    this.mensaje='';
+    this.showMensaje=false;
+
+    this.modoEdicion = false;
   }// constructor
 
   ngOnInit() {
@@ -49,8 +59,11 @@ export class TareasComponent implements OnInit {
     console.trace('eliminarTarea %o', this.eliminado);
     if(confirm('Estas seguro?')){
       console.trace('Elminacion confirmada');
-      alert(`Se ha eliminado la tarea "${this.eliminado.titulo}" con el id "${this.eliminado.id}"`);
-      this.servicioTarea.eliminar(id).subscribe(()=>this.cargarTareas());
+      this.servicioTarea.eliminar(id).subscribe(()=>{
+        this.mensaje=`Se ha eliminado la tarea "${this.eliminado.titulo}" con el id "${this.eliminado.id}"`;
+        this.showMensaje=true;
+        this.cargarTareas();
+      });
       
     }else{
       console.trace('Elminacion cancelada');
@@ -68,12 +81,21 @@ export class TareasComponent implements OnInit {
       this.servicioTarea.crear(tNueva).subscribe(()=>{
         this.tituloNuevo='';
         this.cargarTareas();
+        this.mensaje='tarea creada correctamente.';
+        this.showMensaje=true;
       });
     }else{
       console.trace('esta vacio amigo');
-      alert('oye que esta vacio, escribe algo');
+      this.mensaje='oye que esta vacio, escribe algo.';
+      this.showMensaje=true;
     }
     
   }
+
+  cambiarTitulo(tarea: Tarea): void {
+    console.debug('loose focus para cambiar titulo %o', tarea);
+    this.servicioTarea.modificar(tarea).subscribe( () => this.cargarTareas() );
+  }// cambiarTitulo
+
 
 }//TareasComponent

@@ -1,0 +1,46 @@
+<h1>Iniciar sesion</h1>
+<h2>Formulario Reactivo</h2>
+<p class="text-danger">ACORDARSE DE IMPORTAR <code>ReactiveFormsModule</code></p>
+
+<div class="row">
+    <div class="col">
+        <pre>{{formulario.value|json}}</pre>
+        <pre>{{formulario.status|json}}</pre>
+
+        <form [formGroup]="formulario" (ngSubmit)="enviar(formulario.value)" >
+            <div class="form-group">
+                <input class="form-control" formControlName="nombre" type="text" placeholder="usuario">
+                <small *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.dirty" class="text-danger">Minimo 2 caracteres, maximo 100</small>
+                <small *ngIf="formulario.controls.nombre.valid" class="text-success">Nombre valido</small>
+            </div>
+            <br>
+            <div class="form-group">
+                <input class="form-control" formControlName="password" type="password" placeholder="contraseña">
+                <small *ngIf="formulario.controls.password.invalid && formulario.controls.password.dirty" class="text-danger">Escribe bien ostia</small>
+                <small *ngIf="formulario.controls.password.valid" class="text-success">formato valido</small>
+            </div>
+            <br>
+            <input type="submit" class="btn btn-primary form-control" [disabled]="formulario.invalid" value="Enviar">
+        </form>
+    </div>
+    <!-- cierre col 1-->
+    <div class="col">
+        
+
+
+        <h3>FormControl para <b>password</b></h3>
+        <a href="https://angular.io/api/forms/FormControl" target="_blank">Documentacion</a>
+
+        <pre>valid: <b>{{ formulario.controls.password.valid | json }}</b></pre>      
+        <pre>invalid: <b>{{ formulario.controls.password.invalid | json }}</b></pre>      
+        <pre>dirty: el usuario ha modificado el valor del control <b>{{ formulario.controls.password.dirty | json }}</b></pre>      
+        <pre>pristine: el valor del control no ha sido cambiado por el usuario <b>{{ formulario.controls.password.pristine | json }}</b></pre>      
+        <pre>touched: el usuario ha tocado el control lanzando un evento <code>blur</code> al salir <b>{{ formulario.controls.password.touched | json }}</b></pre>      
+        <pre>untouched: el usuario no ha tocado y salido del control lanzando ningún evento <code>blur</code> <b>{{ formulario.controls.password.untouched | json }}</b></pre>      
+        <pre>Errors: errores de validaciones <b>{{ formulario.controls.password.errors | json }}</b></pre>     
+    </div>
+    <!-- cierre col 2-->
+
+</div>
+
+<!-- cierre row-->

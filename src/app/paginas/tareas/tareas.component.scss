@@ -9,14 +9,70 @@ span.completada{
     color:rgb(200,113,113);
 
 }
-.contenedor{
-    padding:20px;
-    box-align: center;
-    background-color: rgba(128, 128, 128, 0.575);       
-    margin: auto;
-}
+
 .principal{
-    background-image: url("https://media.aws.alkosto.com/media/catalog/product/cache/6/image/69ace863370f34bdf190e4e164b6e123/7/7/7707036533436_1.jpg");
+    background: url("https://media.aws.alkosto.com/media/catalog/product/cache/6/image/69ace863370f34bdf190e4e164b6e123/7/7/7707036533436_1.jpg") no-repeat center center fixed;  
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 80vh;
     padding: 4em;
     
+
+    .contenedor{
+        padding:20px;       
+        background-color: rgba(128, 128, 128, 0.575);       
+        width: 70vw;
+        margin: auto;
+
+        .crear {
+            display: flex;
+            margin-bottom: 1rem;       
+        }
+        
+        input[type="checkbox"] {
+            width: 30px;
+            height: 30px;
+        }    
+    
+    
+        ul {
+        
+            padding: 0;
+    
+            li {
+    
+                list-style: none;
+                display: flex;
+                margin-bottom: 10px;
+                    
+                input[type="text"] {
+                    flex-grow: 2;
+                    margin-right: 10px;
+                }
+            
+                input[type="text"].titulo{
+                    font-weight: 500;
+                    margin-left: 10px;
+                }
+            
+                input[type="text"].completada{
+                    text-decoration: line-through;
+                    font-weight: 100;
+                    color: rgb(119, 113, 113);
+                }
+
+                span.eliminar{
+                    font-size: 1.8em;
+
+                    &:hover{
+                        color:red;
+                    }
+                }
+            
+            } // li
+
+        } // ul
+    }
 }

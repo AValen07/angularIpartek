@@ -1,9 +1,17 @@
 <h2>Tareas</h2>
 <p>Ejemplo de provider o Servicio para hacer un CRUD completo, contra un servicio REST</p>
 <div class="col-12 principal">
+
+    <div *ngIf="showMensaje" class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{mensaje}}
+        <button (click)="showMensaje = !showMensaje" type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
     <div class="contenedor col-8" >
         <div class="row justify-content-center">
-            <div class="col-9 input-group ">
+            <div class="col-9 input-group crear ">
                 <input type="text" class="form-control" [(ngModel)]="tituloNuevo" >
                 <div class="input-group-append">
                     <button class="input-group-text" (click)="nuevaTarea()">Crear</button >                
@@ -12,11 +20,14 @@
         </div>
         <div class="row justify-content-center">
             <ul class="col-9 list-group">
-                <li (click)="editarTitulo()" class="list-group-item" *ngFor="let tarea of tareas">
+                <li  (click)="modoEdicion = true" class="list-group-item" *ngFor="let tarea of tareas">
                     <input type="checkbox"  [checked]="tarea.completada" (click)="editarEstado(tarea)">
                     <b>{{tarea.id}} </b>          
-                    <span class="titulo {{(tarea.completada)?'completada':''}}">{{tarea.titulo}} </span> 
-                    <i (click)="eliminarTarea(tarea.id)" class="fas fa-trash-alt"></i>
+                    <input type="text" [(ngModel)]="tarea.titulo"
+                     class="titulo {{(tarea.completada)?'completada':''}}"
+                     (blur)="cambiarTitulo(tarea); modoEdicion = false"
+                     [disabled]="!modoEdicion"/> 
+                    <span (click)="eliminarTarea(tarea.id)" class="fas fa-trash-alt eliminar"></span>
                 </li>
             </ul>
         </div>
