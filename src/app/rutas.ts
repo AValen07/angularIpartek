@@ -52,15 +52,5 @@
       'ruta': '/tareas',
       'nombre': 'Tareas',
       'icono': ''
-    },
-    {
-      'ruta': '/privado',
-      'nombre': 'Privado',
-      'icono': ''
-    },
-    {
-      'ruta': '/login',
-      'nombre': 'Login',
-      'icono': ''
     }
   ];

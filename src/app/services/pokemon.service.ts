@@ -12,7 +12,7 @@ export class PokemonService implements IPokemonService{
 
   constructor(private http: HttpClient) {
     console.trace('PokemonService constructor');
-
+    
   }
 
   getPokemon(nombre:string): Observable<any>{    

@@ -1,3 +1,4 @@
+import { Usuario } from '../model/usuario';
 
 export interface IUsuarioService{
 

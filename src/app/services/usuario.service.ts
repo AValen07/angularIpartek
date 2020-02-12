@@ -20,13 +20,20 @@ export class UsuarioService implements IUsuarioService{
     console.trace('UsuarioService estaLogueado');
     return this.isLogged;
   }
+
+  /**
+   * Busca el usuario por nombre y password
+   * @param nombre 
+   * @param password 
+   * @return Usuario con datos si existe
+   */
   login(nombre: string, password: string) {
     console.trace('UsuarioService estaLogueado');
     const NOMBRE ='admin';
-    const PASS ='admin';
+    const PASS ='1234567';
     let usuarioBuscar:Usuario;
 
-    if(NOMBRE===nombre && PASS===password){
+    if(NOMBRE==nombre && PASS==password){
       console.trace('usuario encontrado');
       usuarioBuscar=new Usuario();
       usuarioBuscar.nombre=nombre;

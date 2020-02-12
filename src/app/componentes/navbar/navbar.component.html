@@ -4,11 +4,23 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
+    estaLogueado = {{usuarioService.estaLogueado()}}
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li *ngFor="let ruta of rutas" class="nav-item active">
                 <a [routerLink]="[ruta.ruta]" routerLinkActive="router-link-active" class="nav-link">{{ruta.nombre}}</a>
-            </li>            
+            </li> 
+            <!--Rutas si el usuario esta logueado o no-->
+            <li *ngIf="!usuarioService.estaLogueado()" class="nav-item active">
+                <a [routerLink]="'/login'" routerLinkActive="router-link-active" class="nav-link">Iniciar Sesion</a>
+            </li>
+            <li *ngIf="usuarioService.estaLogueado()" class="nav-item active">
+                <a [routerLink]="'/privado'" routerLinkActive="router-link-active" class="nav-link">Backoffice</a>
+            </li>  
+            <li *ngIf="usuarioService.estaLogueado()" class="nav-item active">
+                <a (click)="salir()" class="nav-link">Cerrar Sesion</a>
+            </li>      
         </ul>  
     </div>
 </nav>
